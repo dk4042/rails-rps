@@ -15,7 +15,27 @@ class ZebraController < ApplicationController
     render({ :template => "game_templates/rules"})
   end
 
+  def elephant
+    @random_move = ["rock", "paper", "scissors"].sample
+     if @random_move == "paper"
+      @outcome = "tied"
+    elsif @random_move == "scissors"
+      @outcome = "lost"
+    else 
+      @outcome = "won"
+    end
+    render({ :template => "game_templates/play_paper"})
+  end
 
-
-
+  def lion
+    @random_move = ["rock", "paper", "scissors"].sample
+     if @random_move == "scissors"
+      @outcome = "tied"
+    elsif @random_move == "rock"
+      @outcome = "lost"
+    else 
+      @outcome = "won"
+    end
+    render({ :template => "game_templates/play_scissors"})
+  end
 end 
